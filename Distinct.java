@@ -1,6 +1,7 @@
 package Distinct;
 
 // note: remember to import (for using "Arrays.sort(xxx[])")
+
 import java.util.*;
 
 // System.out.println("this is a debug message");
@@ -8,23 +9,22 @@ import java.util.*;
 class Solution {
     public int solution(int[] A) {
 
-      // special case
-        if(A.length ==0)
+        // special case
+        if (A == null || A.length == 0)
             return 0;
-      
-      // initial setting: one distinct number
-        int result =1;
-        
-      // Using "Arrays.sort(A)" (important)
-        Arrays.sort(A);
-        
-      // for counting the distinct numbers
-        for(int i=1; i < A.length; i++){
-            if(A[i] != A[i-1]){ // distinct
-                result++; 
-            }
+
+        // init unique set
+        HashSet<Integer> set = new HashSet<>();
+
+        // add all elements to unique set
+        for (int i = 0; i < A.length; i++) {
+            set.add(A[i]);
         }
-        
-        return result; // return the number of distinct values
+
+        // return the size of uniqe set
+        return set.size();
+
     }
+
+
 }
